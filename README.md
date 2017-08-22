@@ -1,2 +1,3 @@
-# info263group
-Group project for info 263
+READ ME FOR DEVGROUP O
+
+This is our project. There isn't much in here....
