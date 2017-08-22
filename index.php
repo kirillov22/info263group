@@ -1,6 +1,11 @@
 <?php
 $active = "home";
 require_once 'include/header.php';
+echo "it's actually GNU/Linux" . "<br>";
+
+echo "WOWEEEEE LOOK AT ME IM MR MEESEEKS" . "<br>";
+
+echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br>";
 ?>
 
 <script async defer
