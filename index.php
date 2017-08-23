@@ -8,6 +8,7 @@ echo "WOWEEEEE LOOK AT ME IM MR MEESEEKS" . "<br>";
 echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br>";
 ?>
 
+<div id="map"></div>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ln7RlpdUdfz7ZBc331XtKX3XOa4KVW8&callback=initMap">
 </script>
