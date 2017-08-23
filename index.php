@@ -9,7 +9,7 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 ?>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY_HERE&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ln7RlpdUdfz7ZBc331XtKX3XOa4KVW8&callback=initMap">
 </script>
 <script src="scripts/map.js"></script>
 <script>
