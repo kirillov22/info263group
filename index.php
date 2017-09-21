@@ -34,6 +34,9 @@ function displayAllRoutes($conn) {
 }
 
 
+function fillDropdown($myArray) {
+	
+}
 
 echo "it's actually GNU/Linux" . "<br>";
 echo "WOWEEEEE LOOK AT ME IM MR MEESEEKS" . "<br>";
@@ -48,21 +51,30 @@ echo "</select>";
 
 //displayAllRoutes($conn);
 ?>
+<html>
+	<head>
+	</head>
+	<body>
+		<div style="width:100%;height:100px;background-color:#424242;">
+		<div style="color:white;">lookup route</div>
+			<select id="routeSelect">
+				<option value="None">Please select a route</option>
+			</select>
+		</div><br>
 
-<div style="width:100%;height:100px;background-color:#424242;">
-<div style="color:white;">lookup route</div>
-</div><br>
-
-<div id="map"></div>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ln7RlpdUdfz7ZBc331XtKX3XOa4KVW8&callback=initMap">
-</script>
-<script src="scripts/map.js"></script>
-<script>
-    $(document).ready(function() {
-
-    });
-</script>
+		<div id="map"></div>
+		<script async defer
+		  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ln7RlpdUdfz7ZBc331XtKX3XOa4KVW8&callback=initMap">
+		</script>
+		<script src="scripts/map.js"></script>
+		<script src="scripts/scripts.js"></script>
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js">
+		    $(document).ready(function() {
+		
+		    });
+		</script>
+	</body>
+</html>
 <?php
 require_once 'include/footer.php';
 ?>
