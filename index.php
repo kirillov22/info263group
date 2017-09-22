@@ -3,52 +3,10 @@ $active = "home";
 require_once('include/header.php');
 require_once("include/config.php");
 
-$conn = new mysqli($hostname, $username, $password, $database);
-
-if ($conn->connect_error) {
-	fatalError($conn->connect_error);
-	return;
-}
-
-function displayAllRoutes($conn) {
-	$myArray = array();
-	$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes;';
-	$result = $conn->query($query);
-	
-	if (!$result) {
-		echo('Uhh ohh. Error to the database. Please ask Rick Sanchez for more info!' . '<br>');
-		fatalError($conn->error);
-	}
-	else {
-		while ($row = $result->fetch_array(MYSQLI_ASSOC))
-	    {
-	        $myArray[] = $row['route_short_name'];
-	    }
-	    $result->close();
-	    /*for ($i = 0; $i < count($myArray); $i++) {
-	    	echo($myArray[$i] . '<br>');
-	    }*/
-	}
-	$js_array = json_encode($myArray);
-	
-	return $myArray;
-}
-
 echo "it's actually GNU/Linux" . "<br>";
 echo "WOWEEEEE LOOK AT ME IM MR MEESEEKS" . "<br>";
 echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br>";
-$myArray = array();
 
-/*
-echo "<select>";
-	for ($i = 0; $i < count($myArray); $i++) {
-		echo "<option value='".$myArray[$i]."'>".$myArray[$i]."</option>";
-	}
-echo "</select>";
-*/
-
-
-//displayAllRoutes($conn);
 ?>
 <html>
 	<head>
@@ -70,9 +28,11 @@ echo "</select>";
 		<script>
 		    $(document).ready(function() {
 				var result = $.post("postRequests.php", {"allRoutes": true}, function() {
-						alert('success');
-						//console.log(result);
-						console.log(result.responseText);					
+						alert('Suh Dude.');
+						populateRoutes(result.responseText);
+						//DBG: 
+						console.log(result.responseText);
+										
 					}
 		    )});
 		</script>
