@@ -66,8 +66,8 @@ function initMap(){
 		});
 		marker.addListener('click', function() {
 		map.setZoom(13);
-		map.setCenter(marker.getPosition());
-		notify(marker.getPosition());
+		map.setCenter(this.getPosition());
+		notify(this.getPosition());
 	});
 	}
 }
