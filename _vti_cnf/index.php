@@ -5,7 +5,7 @@ vti_author:SR|UOCNT\\kki43
 vti_modifiedby:SR|UOCNT\\kki43
 vti_timecreated:TR|22 Aug 2017 23:24:21 -0000
 vti_backlinkinfo:VX|
-vti_syncofs_192.168.142.2\:21:TW|22 Sep 2017 03:19:00 -0000
+vti_syncofs_192.168.142.2\:21:TW|27 Sep 2017 01:03:00 -0000
 vti_syncwith_192.168.142.2\:21:TX|22 Sep 2017 03:19:03 -0000
 vti_nexttolasttimemodified:TW|22 Sep 2017 03:15:38 -0000
 vti_cacheddtm:TX|22 Sep 2017 03:19:03 -0000
