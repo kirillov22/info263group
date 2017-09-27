@@ -42,7 +42,8 @@ var locations = [
 	['bus 96', -33.923036, 151.259052, "northlands to UC"],
 	['greyhound 6', -34.028249, 151.157507, "Orbiter"],
 	['leopard bus 4', -33.80010128657071, 151.28747820854187, "Blue line"],
-	['garys car', -33.950198, 151.259302, "on his way home"]
+	['garys car', -33.950198, 151.259302, "on his way home"],
+	['Kirill', -33.993230, 151.176767, "Trying to go swimming"]
 ];
 	
 function initMap(){
