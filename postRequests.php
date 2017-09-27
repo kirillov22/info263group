@@ -7,7 +7,7 @@
 	}
 	
 	if ($_POST['allRoutes']) {
-		$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes;';
+		$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes ORDER BY route_short_name ASC;';
 		$result = $conn->query($query);
 		$routeArray = getAllRoutes($result);
 		//$result->close;
