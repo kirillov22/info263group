@@ -34,20 +34,3 @@ body > .container {
         height: 603px;
         width: 100%;
 }
-
-#infobox{
-	position:fixed;
-	left:-420px;
-	top:10%;
-	background-color:#FAFAFA;
-	width:400px;
-	height:80px;
-	transition:left 1s;
-	z-index:99999;
-	border-style:solid;
-	border-width:1px;
-	border-color:#BDBDBD;
-	padding:10px;
-	font-family: 'Open Sans', sans-serif;
-	font-size:12pt;
-}

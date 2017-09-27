@@ -24,16 +24,13 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 				<option value="None">Please select a route</option>
 			</select>
 		</div><br>
-		<div id="map"></div>
-		<div id="infobox">Bus:<br></div>
-		
+		<div id="map"></div>		
 		<script>
 		    $(document).ready(function() {
 				var result = $.post("postRequests.php", {"allRoutes": true}, function() {
 						populateRoutes(result.responseText);
 						//DBG: 
-						console.log(result.responseText);
-										
+						//console.log(result.responseText);				
 					}
 		    )});
 		</script>

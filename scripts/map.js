@@ -33,10 +33,8 @@ function notify(loc) {
 		route = locations[i][3];
 		}
 	}
-	var box = document.getElementById("infobox");
-	box.style.left = "0px";
-	box.innerHTML = name + " <br>" + route + "<br>coordinates: " + loc ;
 	
+	return name + " <br>" + route + "<br>coordinates: " + loc;
 }
 
 var locations = [
@@ -58,17 +56,30 @@ function initMap(){
 	var marker;
 	
 	for (var i = 0; i < locations.length; i++) {
-			myLatlng = {lat: locations[i][1],lng: locations[i][2]}; 
-			marker = new google.maps.Marker({
+		myLatlng = {lat: locations[i][1],lng: locations[i][2]}; 
+		marker = new google.maps.Marker({
 			position: myLatlng,
 			map: map,
-			title: 'Click to zoom'
+			title: 'Double click to zoom. Single click for info.'
 		});
+				
 		marker.addListener('click', function() {
-		map.setZoom(13);
-		map.setCenter(this.getPosition());
-		notify(this.getPosition());
-	});
+			binfo = notify(this.getPosition());
+			//iw.setContent(binfo);
+			//iw.open(map, this);
+			infoWindow.setContent(notify(this.getPosition()));
+			infoWindow.open(map, this);
+		});
+				
+		marker.addListener('dblclick', function() {
+			map.setZoom(13);
+			map.setCenter(this.getPosition());
+		});
+		
+		var infoWindow = new google.maps.InfoWindow({
+			content: 'Uh-oh'
+		});
+
 	}
 }
 

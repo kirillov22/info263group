@@ -11,7 +11,8 @@ function populateRoutes(response) {
 	response = stringToArray(response);
 	$('#routeSelect option[value="None"').remove();
 	for (var i = 0; i < response.length; i++) {
-		console.log(response[i]);
+		//DBG MSG:
+		//console.log(response[i]);
 		var value = response[i].slice(1, -1);
 		$('#routeSelect').append('<option value="'+value+'">'+value+'</option>');
 	}
