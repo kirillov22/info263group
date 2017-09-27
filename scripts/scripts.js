@@ -17,3 +17,12 @@ function populateRoutes(response) {
 		$('#routeSelect').append('<option value="'+value+'">'+value+'</option>');
 	}
 }
+
+
+function APIquery() {				
+	var jsonResult = $.post('postRequests.php', {'queryAPI': true});
+	console.log(jsonResult.responseText);
+	console.log('DBG: JSON should ouput');
+	console.log(jsonResult);	
+}
+

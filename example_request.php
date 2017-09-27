@@ -5,7 +5,7 @@ require_once 'requests.php';
 $url = "https://api.at.govt.nz/v2/public/realtime";
 
 $routeName = 'SKY';
-$queryString = 'SELECT DISTINCT route_short_name, trips.trip_id FROM akl_transport.routes, akl_transport.trips
+$queryString = 'SELECT DISTINCT trips.trip_id FROM akl_transport.trips
 WHERE akl_transport.routes.route_id = akl_transport.trips.route_id AND akl_transport.routes.route_short_name = .$routeName.;'
 # if we had query parametets say, trip_ids, we would include an array of them like below
 # $trip_ids = array(1, 3, 64);
