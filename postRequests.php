@@ -14,10 +14,10 @@
 		$conn->close();
 		
 		echo($routeArray);
-	} 
+	}
 	else if (isset($_POST['queryAPI'])) {
 		$query = 'SELECT DISTINCT count(trips.trip_id) FROM akl_transport.routes, akl_transport.trips';
-		//$query = "SELECT DISTINCT trips.trip_id FROM akl_transport.trips WHERE akl_transport.routes.route_id = akl_transport.trips.route_id AND akl_transport.routes.route_short_name = '002'";
+		//$query = "SELECT DISTINCT trips.trip_id FROM akl_transport.trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
 		$query = mysqli_real_escape_string($conn, $query);
 		$queryResult = $conn->query($query);
 		$locations = getBusLocations($queryResult);
@@ -57,11 +57,10 @@
 	*/
 	function getBusLocations($queryResult) {
 		$locations = array();
-		$json = "";
-		error_log(print_r($queryResult), 3, 'error.txt');
+		//error_log(print_r($queryResult), 3, 'error.txt');
 		if ($queryResult) {
-			while ($row = $queryResult->fetch_array(MYSQLI_NUM)) {
-		        $locations[] = $row[0];
+			while ($row = $queryResult->fetch_array(MYSQLI_ASSOC)) {
+		        $locations[] = $row['trip_id'];
 		    }
 		    $json = json_encode($locations);
 		}
