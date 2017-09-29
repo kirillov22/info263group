@@ -16,14 +16,26 @@
 		echo($routeArray);
 	}
 	else if (isset($_POST['queryAPI'])) {
-		$query = 'SELECT DISTINCT count(trips.trip_id) FROM akl_transport.routes, akl_transport.trips';
-		//$query = "SELECT DISTINCT trips.trip_id FROM akl_transport.trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
+		/*//$query = 'SELECT DISTINCT count(trips.trip_id) FROM akl_transport.routes, akl_transport.trips';
+		$query = "SELECT DISTINCT trips.trip_id FROM akl_transport.trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
+		//$query = 'SELECT DISTINCT zone_id FROM akl_transport.stops;';
 		$query = mysqli_real_escape_string($conn, $query);
 		$queryResult = $conn->query($query);
 		$locations = getBusLocations($queryResult);
 		$conn->close();
+		*/
 		
-		echo($locations);
+		//$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes ORDER BY route_short_name DESC';
+		//$query = "SELECT DISTINCT trip_id FROM akl_transport.trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
+		$query = "SELECT route_id FROM routes WHERE route_short_name = 'SKY'";
+		$query = mysqli_real_escape_string($conn, $query);
+		$result = $conn->query($query);
+		$locations = array();
+		$locations = getBusLocations($result);
+		$conn->close();
+
+		
+		return($locations);
 	}
 	
 	
@@ -37,7 +49,7 @@
 			return $conn;
 		}
 	}
-	
+		
 	
 	function getAllRoutes($queryResult) {
 		$routes = array();
@@ -56,14 +68,30 @@
 	* Error log is just showing "1". No idea what to do....
 	*/
 	function getBusLocations($queryResult) {
+	/*
 		$locations = array();
+		$json = "";
 		//error_log(print_r($queryResult), 3, 'error.txt');
 		if ($queryResult) {
-			while ($row = $queryResult->fetch_array(MYSQLI_ASSOC)) {
+			while ($row = $queryResult->fetch_assoc()) {
 		        $locations[] = $row['trip_id'];
+		        //error_log(print($row['zone_id']), 3, 'error2.txt');
+		        error_log($row['trip_id'], 3, 'error2.txt');
 		    }
 		    $json = json_encode($locations);
 		}
+		error_log(print_r($locations), 3, 'error.txt');
 		return $json;
+		*/
+		
+		$trips = array();
+		if ($queryResult) {
+			while ($row = $queryResult->fetch_array(MYSQLI_ASSOC)) {
+		        $trips[] = $row['route_id'];
+		        error_log($row, 3, 'log.txt');
+		    }
+			$json = json_encode($trips);
+		}
+		return $trips;
 	}
 ?>

@@ -4,8 +4,10 @@ How the server side works
 Decision Making Process relating to the seperation of these
 Summary of teamwork
 How we communicated with each other
+To communicate with each other, we used the application Facebook messenger. This was good to use, as we already all had it installed and knew how to use it.
 Management and sharing of code
+To manage and share code, we used a GitHub repository. Kirill had set this up, and every time one of us did something important to the code, we comitted and pushed. This was good, as when gavin wrote some spaghetti code, we could easily revert it to the last working commit. GitHub was also good to use as we all had a preference as to how we used it and what we used it with. We did have some problems with it however, when gavin didnt know how to push a fucking file like the autistic monkey that he is.
 Seperation of tasks
 What went well and didnt go well
 What we would do differently next time around
-2-3 Pages long. 
+2-3 Pages long.
