@@ -10,7 +10,7 @@ WHERE akl_transport.routes.route_id = akl_transport.trips.route_id AND akl_trans
 # if we had query parametets say, trip_ids, we would include an array of them like below
 # $trip_ids = array(1, 3, 64);
 # $params = array("tripid" => $trip_ids);
-$params = array();
+$params = array($queryString);
 $results = apiCall($APIKey, $url, $params);
 // Tell the browser we are sending back json
 header('Content-Type: application/json');

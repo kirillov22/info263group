@@ -26,16 +26,15 @@
 		*/
 		
 		//$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes ORDER BY route_short_name DESC';
-		//$query = "SELECT DISTINCT trip_id FROM akl_transport.trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
-		$query = "SELECT route_id FROM routes WHERE route_short_name = 'SKY'";
+		$query = "SELECT DISTINCT trip_id FROM trips WHERE routes.route_id = trips.route_id AND routes.route_short_name = '002'";
+		//$query = "SELECT route_id FROM routes WHERE route_short_name = 'SKY'";
 		$query = mysqli_real_escape_string($conn, $query);
 		$result = $conn->query($query);
-		$locations = array();
-		$locations = getBusLocations($result);
+		$trips = getBusLocations($result);
 		$conn->close();
 
 		
-		return($locations);
+		print_r($trips);
 	}
 	
 	
@@ -85,13 +84,16 @@
 		*/
 		
 		$trips = array();
-		if ($queryResult) {
-			while ($row = $queryResult->fetch_array(MYSQLI_ASSOC)) {
-		        $trips[] = $row['route_id'];
-		        error_log($row, 3, 'log.txt');
-		    }
-			$json = json_encode($trips);
-		}
+		error_log('Query Result: ' . $queryResult . "\n", 3, 'error.txt');
+		while ($row = mysqli_fetch_array($queryResult)) {
+			unset($trip);
+			$trip = $row['trip_id'];
+	        array_push($trips, $trip);
+	        error_log('TRIP LINE: ' . $trip . "\n", 3, 'log.txt');
+	        //echo($trip);
+	        //echo("\n");
+	    }
+		//$json = json_encode($trips);
 		return $trips;
 	}
 ?>

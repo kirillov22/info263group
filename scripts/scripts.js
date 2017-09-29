@@ -20,9 +20,9 @@ function populateRoutes(response) {
 
 
 function APIquery() {				
-	var jsonResult = $.post('postRequests.php', {'queryAPI': true});
-	console.log(jsonResult.responseText);
-	console.log('DBG: JSON should ouput');
-	console.log(jsonResult);	
+	$.post('postRequests.php', {'queryAPI': true}, function(result) {
+		console.log('DBG: JSON should ouput');
+		console.log(result);
+	});	
 }
 
