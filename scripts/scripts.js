@@ -1,12 +1,20 @@
-//Use some jQuery to fill the select box in the html
 function stringToArray(string) {
 	string = string.slice(1, -1);
-	string = string.split(",");
+	var array = string.split(",");
 	
-	return string;
+	return array;
 }
 
 
+
+function routeQuery() {
+	$.post('postRequests.php', {'allRoutes': true}, function(result) {
+		populateRoutes(result);				
+	});
+}
+
+
+//Use some jQuery to fill the select box in the html
 function populateRoutes(response) {
 	response = stringToArray(response);
 	$('#routeSelect option[value="None"').remove();
@@ -23,6 +31,9 @@ function APIquery() {
 	$.post('postRequests.php', {'queryAPI': true}, function(result) {
 		console.log('DBG: JSON should ouput');
 		console.log(result);
+		var array = stringToArray(result);
+		console.log('DBG: Now it should be an array');
+		console.log(array);
 	});	
 }
 

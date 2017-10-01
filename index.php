@@ -30,12 +30,8 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 		</div>	
 		<script>
 		    $(document).ready(function() {
-				var result = $.post('postRequests.php', {'allRoutes': true}, function() {
-						populateRoutes(result.responseText);
-						//DBG: 
-						//console.log(result.responseText);				
-					}
-				)});
+					routeQuery();
+				});
 			APIquery();
 		</script>
 	</body>
