@@ -29,11 +29,10 @@ function populateRoutes(response) {
 
 function APIquery() {				
 	$.post('postRequests.php', {'queryAPI': true}, function(result) {
+		console.log(result);
+		result = JSON.parse(result);
 		console.log('DBG: JSON should ouput');
 		console.log(result);
-		var array = stringToArray(result);
-		console.log('DBG: Now it should be an array');
-		console.log(array);
 	});	
 }
 

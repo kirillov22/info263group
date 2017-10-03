@@ -1,5 +1,6 @@
 <?php
 	require_once("include/config.php");
+	require_once("requests.php");
 	$conn = getConnection($hostname, $username, $password, $database);
 	if ($conn->connect_error) {
 		fatalError($conn->error);
@@ -16,13 +17,17 @@
 		echo($routeArray);
 	}
 	else if (isset($_POST['queryAPI'])) {
-		$param = '002';
+		$param = 'CTY';
 		$query = "SELECT DISTINCT trip_id FROM trips, routes WHERE routes.route_id = trips.route_id AND routes.route_short_name = '". $param ."'";
 		$result = $conn->query($query);
 		$trips = getBusLocations($result);
 		$conn->close();
+		
+		$trip_array = array("tripid" => $trips);
+		$locations = apiCall($APIKey, $url, $trip_array);
+		$locations = json_encode($locations);
 
-		echo($trips);
+		echo($locations);
 	}
 	
 	
@@ -55,7 +60,6 @@
 		while ($row = $queryResult->fetch_array(MYSQLI_ASSOC)) {
 			$trips[] = $row['trip_id'];
 	    }
-		$json = json_encode($trips);
-		return $json;
+		return $trips;
 	}
 ?>
