@@ -23,7 +23,7 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 			<select id="routeSelect">
 				<option value="None">Please select a route</option>
 			</select>
-		</div><br>
+		</div>
 		<div id="map"></div><br>
 		<div id="testJSON">
 			<p>Some test JSON should be output here after an API call</p>
@@ -31,8 +31,8 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 		<script>
 		    $(document).ready(function() {
 					routeQuery();
+					APIquery();
 				});
-			APIquery();
 		</script>
 	</body>
 </html>

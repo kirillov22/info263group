@@ -6,7 +6,6 @@ function stringToArray(string) {
 }
 
 
-
 function routeQuery() {
 	$.post('postRequests.php', {'allRoutes': true}, function(result) {
 		populateRoutes(result);				
@@ -29,10 +28,20 @@ function populateRoutes(response) {
 
 function APIquery() {				
 	$.post('postRequests.php', {'queryAPI': true}, function(result) {
-		console.log(result);
 		result = JSON.parse(result);
-		console.log('DBG: JSON should ouput');
-		console.log(result);
-	});	
+		extractLocations(result);
+		
+	});
+}
+
+
+function extractLocations(param) {
+	var i;
+	var len = param.length;
+	console.log("LOL", len);
+	console.log(param);
+	for (i = 0; i < len; i++) {
+		console.log('Gavin is a penis: ' + i + ' ' + param[i]);
+	}
 }
 
