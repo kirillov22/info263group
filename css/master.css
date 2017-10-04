@@ -9,6 +9,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-imgae: url('media/background.jpg');
 }
 
 .footer {
@@ -37,7 +38,7 @@ select{
 	border-color:#424242;
 	position:relative;	
 	left:calc(100% - 310px);
-	top:-32px;
+	top:-42px;
 	color:#FFFFFF;
 	overflow:hidden;
 	width:310px;
