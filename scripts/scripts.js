@@ -28,9 +28,7 @@ function populateRoutes(response) {
 
 function APIquery() {				
 	$.post('postRequests.php', {'queryAPI': true}, function(result) {
-		result = JSON.parse(result);
-		extractLocations(result);
-		
+		extractLocations(result);		
 	});
 }
 
@@ -41,7 +39,10 @@ function extractLocations(param) {
 	console.log("LOL", len);
 	console.log(param);
 	for (i = 0; i < len; i++) {
-		console.log('Gavin is a penis: ' + i + ' ' + param[i]);
+		data = JSON.parse(param[i]);
+		console.log('Weeeeeeeeeeee ' + data.status);
+		
+		console.log('Gavin is a penis: ' + i + ' ' + data);
 	}
 }
 

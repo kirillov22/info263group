@@ -25,9 +25,11 @@
 		
 		$trip_array = array("tripid" => $trips);
 		$locations = apiCall($APIKey, $url, $trip_array);
-		$locations = json_encode($locations);
-
-		echo($locations);
+		processJSON($locations);
+		//print_r(json_decode($locations[0])->response);
+		//$locations = json_encode($locations);
+		//header('Content-Type: application/json');
+		//echo($locations);
 	}
 	
 	
@@ -61,5 +63,27 @@
 			$trips[] = $row['trip_id'];
 	    }
 		return $trips;
+	}
+	
+	function processJSON($json) {
+		$busses = array();
+		$len = count($json);
+		for ($i = 0; $i < $len; $i++) {
+			$data = json_decode($json[$i]);
+			//print_r('Dudududu ====================== ' . $data->response->entity);
+			$busData = $data->response->entity;
+			
+			for ($j = 0; $j < count($busData); $j++) {
+				$id = $busData[$j]->vehicle->vehicle->id;
+				//print_r($busData[$j]->vehicle->vehicle->id);
+				array_push($busses, array($id => array(123, 345)));
+			}
+			/*
+			
+			print_r($data->response);
+			print_r('Dudududu ====================== ' . $data->response->entity);
+			*/
+		}
+		print_r($busses);
 	}
 ?>
