@@ -38,11 +38,9 @@ function extractLocations(param) {
 	var len = param.length;
 	console.log("LOL", len);
 	console.log(param);
+	console.log(typeof(param));
 	for (i = 0; i < len; i++) {
-		data = JSON.parse(param[i]);
-		console.log('Weeeeeeeeeeee ' + data.status);
-		
-		console.log('Gavin is a penis: ' + i + ' ' + data);
+		console.log('My group is filled with morons ' + JSON.parse(param[i]));
 	}
 }
 

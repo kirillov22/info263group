@@ -79,7 +79,7 @@
 					$lat = $busData[$j]->vehicle->position->latitude;
 					$long = $busData[$j]->vehicle->position->longitude;
 					
-					array_push($busses, array($id => array($lat, $long)));				
+					array_push($busses, array('id' => $id, 'lat' => $lat, 'long' => $long));				
 				}
 			}
 		}
