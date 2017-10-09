@@ -26,9 +26,10 @@ function populateRoutes(response) {
 }
 
 
-function APIquery() {				
-	$.post('postRequests.php', {'queryAPI': true}, function(result) {
-		extractLocations(result);		
+function APIquery() {
+	var queryRoute = $('#routeSelect').val();
+	$.post('postRequests.php', {'queryAPI': true,'route':queryRoute}, function(result) {
+		extractLocations(result);
 	});
 }
 
@@ -39,8 +40,12 @@ function extractLocations(param) {
 	console.log("LOL", len);
 	console.log(param);
 	console.log(typeof(param));
+	recievebuses(param);
+	refreshMap();
 	for (i = 0; i < len; i++) {
-		console.log('My group is filled with morons ' + JSON.parse(param[i]));
+		console.log(param[i]);
+		newmarker(param[i].lat, param[i].long, param[i].id,'bus');
+		//console.log('My group is filled with morons ' + JSON.parse(param[i]));
 	}
+	
 }
-

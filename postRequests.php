@@ -17,7 +17,7 @@
 		echo($routeArray);
 	}
 	else if (isset($_POST['queryAPI'])) {
-		$param = 'CTY';
+		$param = $_POST['route'];
 		$query = "SELECT DISTINCT trip_id FROM trips, routes WHERE routes.route_id = trips.route_id AND routes.route_short_name = '". $param ."'";
 		$result = $conn->query($query);
 		$trips = getBusLocations($result);

@@ -7,7 +7,7 @@ the rest of the work can only be done when there is a line of code where the loc
 is updated and the with the latest details of the map.
 
 */
-var locations = [  ['garys car', -33.950198, 151.259302, "on his way home"]
+var locations = [  ['Kirils car', -33.950198, 151.259302, "Oh wait he cant drive"]
 
 	];
 	
@@ -36,18 +36,12 @@ function initMap(){
 		bounds.extend(allmarkers[i].getPosition());
 	}
 	infomap.fitBounds(bounds);
-	newmarker(-33.490542, 149.374856, "southbound",'bus 1');
-	newmarker(-31.755908, 151.696743, "Blue line",'bus 2');
-	newmarker(-33.355908, 150.496743, "orbiter",'bus 3');
-	newmarker(-32.155908, 152.696743, "northlands",'bus 4');
-	newmarker(-32.455908, 150.686743, "route 66",'bus 5');
-	setInterval(refreshMap, 30000);
+	setInterval(APIquery,30000);
   }
 
 	function newmarker(x,y,name,route) {
 	
-		var payload = [name,x,y,route];
-		locations.push(payload);
+		locations.push([name,x,y,route]);
 		var myLatlng = {lat: x,lng: y}; 
 		
 		mark = new google.maps.Marker({
@@ -69,7 +63,7 @@ function initMap(){
 		});
 		
 		mark.addListener('dblclick', function() {
-			infomap.setZoom(13);
+			infomap.setZoom(15);
 			infomap.setCenter(this.getPosition());
 		});
 		
@@ -82,6 +76,12 @@ function initMap(){
 		infomap.fitBounds(bounds);
 		
 	}
+
+function recievebuses(inputparam){
+	for (var busnum = 0; busnum < inputparam.length; busnum++){
+			console.log(inputparam[busnum]);
+	}
+}
 	
 function refreshMap(){
 	
@@ -93,15 +93,7 @@ function refreshMap(){
 	locations = []; 
 	
 	// please replace the following example code with by creating a for loop that adds new markers to the map.
-	newmarker(-0, 0, "southbound",'bus 1');
-	newmarker(-31.755908, 151.696743, "Blue line",'bus 2');
-	newmarker(-33.355908, 150.496743, "orbiter",'bus 3');
-	newmarker(-32.155908, 152.696743, "northlands",'bus 4');
-	newmarker(-32.455908, 150.686743, "route 66",'bus 5');
-	
 }
-
-	
 	
 	function notify(loc) {
 		

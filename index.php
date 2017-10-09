@@ -28,6 +28,11 @@ require_once("include/config.php");
 		    $(document).ready(function() {
 					routeQuery();
 					APIquery();
+					
+					$('#routeSelect').on('change', function() {
+						APIquery();
+					})
+					
 				});
 		</script>
 	</body>
