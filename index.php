@@ -2,11 +2,6 @@
 $active = "home";
 require_once('include/header.php');
 require_once("include/config.php");
-
-echo "it's actually GNU/Linux" . "<br>";
-echo "WOWEEEEE LOOK AT ME IM MR MEESEEKS" . "<br>";
-echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br>";
-
 ?>
 <html>
 	<head>
@@ -18,8 +13,9 @@ echo "I'm Rickle Pick!. Morty look at me ive turned myself into a Rickle" . "<br
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div style="width:100%;height:100px;background-color:#424242;">
-		<div style="color:white;">lookup route</div>
+		<div id="navbar">
+		<h1> Inteli Bus</h1>
+		<div id="ltab">lookup route</div>
 			<select id="routeSelect">
 				<option value="None">Please select a route</option>
 			</select>

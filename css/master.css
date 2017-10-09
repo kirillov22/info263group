@@ -9,7 +9,11 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-imgae: url('media/background.jpg');
+  background-image: url('/media/bg.jpg');
+  background-size: cover;
+}
+h1{
+	font-size:82px;
 }
 
 .footer {
@@ -24,22 +28,28 @@ body {
 #navbar{
 	width:100%;
 	height:100px;
-	background-color:#424242;
+	background-color:rgba(250,250,250,0.5);
+}
+#titlebar{
+	width:100%;
+	height:100px;
+	background-color:rgba(250,250,250,0.5);
 }
 #ltab{
-	color:white;
+	color:#424242;
 	font-family: 'Helvetica Neue', sans-serif; 
 	position: relative;
 	left: calc(100% - 500px);
+	top:-100px;
 	font-size: 28px; 
 }
 select{
-	background-color:#424242;
-	border-color:#424242;
+	background-color:rgba(250,250,250,0.0);
+	border-color:rgba(250,250,250,0.0);
 	position:relative;	
 	left:calc(100% - 310px);
-	top:-42px;
-	color:#FFFFFF;
+	top:-140px;
+	color:#424242;
 	overflow:hidden;
 	width:310px;
 	font-family: 'Helvetica Neue', sans-serif; 
@@ -52,7 +62,7 @@ select{
 }
 
 option{
-	color:#FFFFFF;
+	color:#424242;
 	overflow:hidden;
 	width:350px;
 	font-family: 'Helvetica Neue', sans-serif; 

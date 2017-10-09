@@ -1,10 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|22 Aug 2017 23:29:59 -0000
+vti_timelastmodified:TR|27 Sep 2017 20:18:57 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|UOCNT\\kki43
-vti_modifiedby:SR|UOCNT\\kki43
+vti_modifiedby:SR|UOCNT\\gmc132
 vti_timecreated:TR|22 Aug 2017 23:29:59 -0000
-vti_cacheddtm:TX|22 Aug 2017 23:29:59 -0000
+vti_title:SR|<?php if (isset($title)){echo "$title - ";} ?>INFO263 Project
+vti_backlinkinfo:VX|
+vti_syncofs_192.168.142.2\:21:TW|27 Sep 2017 20:05:00 -0000
+vti_syncwith_192.168.142.2\:21:TX|22 Aug 2017 23:29:59 -0000
+vti_cacheddtm:TX|27 Sep 2017 20:18:57 -0000
 vti_filesize:IR|1103
 vti_cachedtitle:SR|<?php if (isset($title)){echo "$title - ";} ?>INFO263 Project
 vti_cachedbodystyle:SR|<body <?php if($active == 'home') {echo 'id="home"';} ?>>
@@ -16,7 +20,3 @@ vti_cachedhastheme:BR|false
 vti_cachedhasborder:BR|false
 vti_metatags:VR|viewport width=device-width,\\ initial-scale=1.0
 vti_charset:SR|utf-8
-vti_title:SR|<?php if (isset($title)){echo "$title - ";} ?>INFO263 Project
-vti_backlinkinfo:VX|
-vti_syncofs_192.168.142.2\:21:TW|27 Sep 2017 20:05:00 -0000
-vti_syncwith_192.168.142.2\:21:TX|22 Aug 2017 23:29:59 -0000
