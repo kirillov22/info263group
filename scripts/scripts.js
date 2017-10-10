@@ -16,7 +16,7 @@ function routeQuery() {
 //Use some jQuery to fill the select box in the html
 function populateRoutes(response) {
 	response = stringToArray(response);
-	$('#routeSelect option[value="None"').remove();
+	//$('#routeSelect option[value="None"').remove();
 	for (var i = 0; i < response.length; i++) {
 		//DBG MSG:
 		//console.log(response[i]);

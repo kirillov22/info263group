@@ -14,7 +14,7 @@ require_once("include/config.php");
 	</head>
 	<body>
 		<div id="navbar">
-		<h1> Inteli Bus</h1>
+		<h1>Inteli Bus++</h1>
 		<div id="ltab">lookup route</div>
 			<select id="routeSelect">
 				<option value="None">Please select a route</option>
