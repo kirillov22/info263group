@@ -18,7 +18,7 @@ require_once("include/config.php");
 		<table>
 		<tr>
 		<td>
-			<div id="ltab">lookup route:</div>
+			<div id="ltab"><b>Lookup route:</b></div>
 		</td>
 		<td>
 			<select id="routeSelect">

@@ -70,9 +70,6 @@ select{
 	font-size: 28px; 
 }
 
-body > .container {
-  padding: 60px 15px 0;
-}
 
 .footer > .container {
   padding-right: 15px;
@@ -148,4 +145,14 @@ input:checked + .slider:before {
 	top:-41px;
 	left:-20px;
 	float:right;
+}
+#micro {
+	position:relative;
+	font-size:14px;
+	top:-8px;
+}
+#fixednav {
+	position:relative;
+	background-color:rgba(10,10,10,0.45);
+	height:80px;
 }

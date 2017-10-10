@@ -10,8 +10,8 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
     </head>
     <body <?php if($active == 'home') {echo 'id="home"';} ?>>
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-            <a class="navbar-brand" href="index.php" <?php if($active == 'home') {echo "class='active'";} ?>>Inteli Bus ++</a>
+        <nav id="fixednav" class="navbar navbar-toggleable-md navbar-inverse fixed-top">
+            <a class="navbar-brand" href="index.php" <?php if($active == 'home') {echo "class='active'";} ?>><table><tr><td><h2>Inteli Bus ++</h2></td></tr><tr><td> <div id= "micro">Inteli Bus with classes</div></td></tr></table></a>
             </nav>
 
             <div class="container">

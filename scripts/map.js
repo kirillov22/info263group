@@ -16,26 +16,15 @@ var infomap;
 
 
 function initMap(){
-	var myLatlng = {lat: locations[0][1],lng: locations[0][2]}; 
+	var myLatlng = {lat: 36.84738,lng: 174.76173}; 
 	
     infomap = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: myLatlng
     });
 	
-	//What does this code do???
-	var marker;
-	var binfo = "This is a Bus";
-	var iw = new google.maps.InfoWindow({
-		content: binfo
-	});
 
-	var bounds = new google.maps.LatLngBounds();
-		
-	for (var i = 0; i < allmarkers.length; i++) {
-		bounds.extend(allmarkers[i].getPosition());
-	}
-	infomap.fitBounds(bounds);
+	
 	setInterval(APIquery,30000);
   }
 
@@ -48,7 +37,7 @@ function initMap(){
 			position: myLatlng,
 			map: infomap,
 			icon: "media/bus.png",
-			title: 'Click to zoom'
+			title: 'Double click to zoom'
 		});
 		
 		var binfo = notify(mark.getPosition());
@@ -68,12 +57,16 @@ function initMap(){
 		});
 		
 		
+	var autosize = document.getElementById("autosizecb").checked;
+	if (autosize) {
+
 		var bounds = new google.maps.LatLngBounds();
-		
+			
 		for (var i = 0; i < allmarkers.length; i++) {
-		 bounds.extend(allmarkers[i].getPosition());
+			bounds.extend(allmarkers[i].getPosition());
 		}
 		infomap.fitBounds(bounds);
+	}
 		
 	}
 
