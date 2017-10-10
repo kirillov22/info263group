@@ -28,9 +28,13 @@ function populateRoutes(response) {
 
 function APIquery() {
 	var queryRoute = $('#routeSelect').val();
-	$.post('postRequests.php', {'queryAPI': true,'route':queryRoute}, function(result) {
-		extractLocations(result);
-	});
+	console.log(queryRoute);
+	if (queryRoute != 'None') {
+		$.post('postRequests.php', {'queryAPI': true,'route':queryRoute}, function(result) {
+			extractLocations(result);
+			console.log(result);
+		});
+	}
 }
 
 
