@@ -13,21 +13,41 @@ require_once("include/config.php");
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
+		
 		<div id="navbar">
-		<h1>Inteli Bus++</h1>
-		<div id="ltab">lookup route</div>
+		<table>
+		<tr>
+		<td>
+			<div id="ltab">lookup route:</div>
+		</td>
+		<td>
 			<select id="routeSelect">
 				<option value="None">Please select a route</option>
 			</select>
+		</td>
+		</tr>
+		</table>
+		
+		<table id="checkboxtable">
+		<tr>
+		<td>
+		<p>auto-center:</p>
+		</td>
+		<td>
+			<label class="switch">
+			  <input id="autosizecb" type="checkbox" checked>
+			  <span class="slider round"></span>
+			</label>
+		</td>
+		</tr>
+		</table>
+		
 		</div>
 		<div id="map"></div><br>
-		<div id="testJSON">
-			<p>Some test JSON should be output here after an API call</p>
-		</div>	
 		<script>
 		    $(document).ready(function() {
 					routeQuery();
-					APIquery();
+					//APIquery();
 					
 					$('#routeSelect').on('change', function() {
 						APIquery();
