@@ -7,13 +7,10 @@ the rest of the work can only be done when there is a line of code where the loc
 is updated and the with the latest details of the map.
 
 */
-var locations = [  ['Kirils car', -33.950198, 151.259302, "Oh wait he cant drive"]
-
-	];
 	
 var allmarkers = [];
 var infomap;
-var initialPoint = {lat: -36.84738,lng: 174.76173}; 
+var initialPoint = {lat: -36.84738,lng: 174.76173};
 
 
 function initMap(){	
@@ -22,10 +19,9 @@ function initMap(){
       center: initialPoint
     });
 	
-
-	
 	setInterval(APIquery,30000);
 }
+
 
 function newmarker(x,y,name,route) {
 
@@ -38,7 +34,7 @@ function newmarker(x,y,name,route) {
 		icon: "media/bus.png",
 		title: 'Double click to zoom'
 	});
-	
+		
 	var binfo = notify(mark.getPosition());
 	var iw = new google.maps.InfoWindow({
 		content: binfo
@@ -49,7 +45,7 @@ function newmarker(x,y,name,route) {
 	mark.addListener('click', function() {
 		iw.open(infomap, this);
 	});
-	
+		
 	mark.addListener('dblclick', function() {
 		infomap.setZoom(15);
 		infomap.setCenter(this.getPosition());
@@ -66,7 +62,10 @@ function newmarker(x,y,name,route) {
 		}
 		infomap.fitBounds(bounds);
 	}
+	
 }
+
+
 
 	
 function refreshMap(){
@@ -96,5 +95,5 @@ function notify(loc) {
 		time = locations[i][3];
 		}
 	}
-	return "<b>"+name + "</b> <br>Trip start time: " + time + "<br>coordinates: " + loc;
+	return "<b>Bus id: "+name + "</b> <br>Trip start time: " + time + "<br>Co-ordinates: " + loc;
 }

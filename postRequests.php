@@ -7,7 +7,7 @@
 		return;
 	}
 	
-	//If the query is to get all the routes
+	//If the POST variable is set to get all the routes
 	if (isset($_POST['allRoutes'])) {
 		$query = 'SELECT DISTINCT route_short_name FROM akl_transport.routes ORDER BY route_short_name ASC';
 		$result = $conn->query($query);
@@ -16,14 +16,12 @@
 		
 		echo($routeArray);
 	}
-	//If the query is one to query the API
+	//If the POST variable is set to query the API
 	else if (isset($_POST['queryAPI'])) {
 		$param = $_POST['route'];
+		$param = $conn->real_escape_string($param);
 		$query = $conn->prepare('SELECT DISTINCT trip_id FROM trips, routes WHERE routes.route_id = trips.route_id AND routes.route_short_name = ?');
 		$query->bind_param('s', $param);
-		//$query = $conn->real_escape_string($query);
-		//$query = "SELECT DISTINCT trip_id FROM trips, routes WHERE routes.route_id = trips.route_id AND routes.route_short_name = '". $param ."'";
-		//$result = $conn->query($query);
 		$query->execute();
 		$result = $query->get_result();
 		$trips = getTripIds($result);
@@ -40,6 +38,7 @@
 	
    	/*
 	*	Establishes a connection with the database. If it is unable then an error occurs.
+	*
 	*	@param string $hostname		hostname of the database
 	*	@param string $username		username required for database
 	*	@param string $password		password required for database
@@ -60,6 +59,7 @@
 		
   	/*
 	*	Performs a query on the database to get all of the routes.
+	*
 	*	@param array $queryResult	The resulting array from the route query
 	*	@return	json				a json encoded string is returned of all routes	
 	*/
@@ -77,6 +77,7 @@
 	
 	/*
 	*	Performs a query on the AKL-transport database to get all the trip ids for a given route
+	*
 	*	@param array $queryResult	The resulting array from the tripid query
 	*	@return array $trips		The array of all tripids which will be used to query AT API
 	*/	
@@ -92,6 +93,7 @@
 	/*
 	*	Proccesses the JSON which is returned by the AT API and returns an array of busses
 	* 	which will be used to add markers onto a map. It contains extra information that isn't needed
+	*
 	* 	@param string $json		JSON encoded string which contains all information about busses
 	* 	@return string $busses 	JSON encoded string which has bus id, latitude, longitude of each bus
 	*/
