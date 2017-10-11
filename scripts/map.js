@@ -1,5 +1,5 @@
 /*
-JS writen by Gavin McGill
+JS writen by Gavin McGill yeah and its trash
 29/09/17
 
 
@@ -13,14 +13,13 @@ var locations = [  ['Kirils car', -33.950198, 151.259302, "Oh wait he cant drive
 	
 var allmarkers = [];
 var infomap;
+var initialPoint = {lat: -36.84738,lng: 174.76173}; 
 
 
-function initMap(){
-	var myLatlng = {lat: -36.84738,lng: 174.76173}; 
-	
+function initMap(){	
     infomap = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
-      center: myLatlng
+      center: initialPoint
     });
 	
 
@@ -69,10 +68,6 @@ function newmarker(x,y,name,route) {
 	}
 }
 
-function recievebuses(inputparam){
-	for (var busnum = 0; busnum < inputparam.length; busnum++){
-	}
-}
 	
 function refreshMap(){
 	
@@ -89,7 +84,7 @@ function refreshMap(){
 function notify(loc) {
 	
 	var name;
-	var route;
+	var time;
 	var testLatlng;
 	
 	for (var i = 0; i < locations.length; i ++) {
@@ -98,8 +93,8 @@ function notify(loc) {
 		
 		if ((testLatlng[0].toString()).slice(0, 9) == (loc.toString()).slice(1, 10)){
 		name = locations[i][0];
-		route = locations[i][3];
+		time = locations[i][3];
 		}
 	}
-	return "<b>"+name + "</b> <br>" + route + "<br>coordinates: " + loc;
+	return "<b>"+name + "</b> <br>Trip start time: " + time + "<br>coordinates: " + loc;
 }

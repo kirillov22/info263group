@@ -44,6 +44,11 @@ require_once("include/config.php");
 		
 		</div>
 		<div id="map"></div><br>
+		<div id="output">
+			<p id="routeOutput">
+				Some useful output will be display for the user here
+			</p>
+		</div>
 		<script>
 		    $(document).ready(function() {
 					routeQuery();

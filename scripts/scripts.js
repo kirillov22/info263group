@@ -32,8 +32,9 @@ function APIquery() {
 		$.post('postRequests.php', {'queryAPI': true,'route':queryRoute}, function(result) {
 			if(result.length > 0) {
 				extractLocations(result);
+				$('#routeOutput').text('Found some busses');
 			} else {
-				console.log('No busses on route atm');
+				
 			}
 		});
 	}
@@ -43,10 +44,19 @@ function APIquery() {
 function extractLocations(param) {
 	var i;
 	var len = param.length;
-	recievebuses(param);
 	refreshMap();
 	for (i = 0; i < len; i++) {
 		newmarker(param[i].lat, param[i].long, param[i].id, param[i].time);
 	}
 	
+}
+
+
+function noBussesFound(queryRoute) {
+	refreshMap();
+	$('#routeOutput').text('No busses found for route: ' + queryRoute);
+	if ($('#autosizecb').prop('checked')) {
+		infomap.setCenter(initialPoint);
+		infomap.setZoom(15);
+	}
 }
