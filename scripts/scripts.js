@@ -34,7 +34,7 @@ function APIquery() {
 				extractLocations(result);
 				$('#routeOutput').text('Found some busses');
 			} else {
-				
+				noBussesFound(queryRoute);
 			}
 		});
 	}
