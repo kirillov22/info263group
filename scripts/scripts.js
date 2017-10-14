@@ -32,7 +32,7 @@ function APIquery() {
 		$.post('postRequests.php', {'queryAPI': true,'route':queryRoute}, function(result) {
 			if(result.length > 0) {
 				extractLocations(result);
-				$('#routeOutput').text('There are some busses on the route: '+ queryRoute + '. Click on a bus for more info!');
+				$('#routeOutput').text('There are ' + result.length + ' busses on the '+ queryRoute + ' route. Click on a bus for more information.');
 			} else {
 				noBussesFound(queryRoute);
 			}

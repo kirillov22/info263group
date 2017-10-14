@@ -13,6 +13,14 @@ require_once("include/config.php");
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
+	
+		<div id="typebox">
+		<p id="typehead"><b>Map View</b></p>
+		<a class="mtype" onclick="changemap('roadmap')">ROADMAP</a>
+		<a class="mtype"onclick="changemap('terrain')">TERRAIN</a>
+		<a class="mtype" onclick="changemap('hybrid')">HYBRID</a>
+		<a class="mtype" onclick="changemap('satellite')">SATELLITE</a>
+		</div>
 		
 		<div id="navbar">
 		<table>
@@ -41,12 +49,12 @@ require_once("include/config.php");
 		</td>
 		</tr>
 		</table>
-		
 		</div>
+		
 		<div id="map"></div><br>
 		<div id="output">
 			<p id="routeOutput">
-				Some useful output will be display for the user here
+				Please select a route.
 			</p>
 		</div>
 		<script>
