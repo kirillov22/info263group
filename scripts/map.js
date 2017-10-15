@@ -1,135 +1,139 @@
-/*
-JS writen by Gavin McGill
-29/09/17
-
-This file contains all the javascript that handles data on the map
+/**
+* This file contains all the javascript that handles data on the map
 */
-	
-var allmarkers = [];
-var allwindows = [];
-var infomap;
+
+// Constants & global definitions
+var allMarkers = [];
+var allWindows = [];
+var infoMap;
 var initialPoint = {lat: -36.84738,lng: 174.76173};
 
 
-function initMap(){	
-// this fucntion is called to initialise the map
-    infomap = new google.maps.Map(document.getElementById('map'), {
+// Initialises a new Google maps object called infoMap
+function initMap(){
+    infoMap = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: initialPoint
     });
 	setInterval(APIquery,30000);
 }
 
+
+//closes all inforation windows
 function clearwindows(){
-	//closes all inforation windows
-	for (var win = 0; win < allwindows.length; win ++){
-		allwindows[win].close();
+	for (var i = 0; i < allWindows.length; i++){
+		allWindows[i].close();
 	}
 }
 
+/**
+*		Changes the view type of the map depending on the specified parameter
+*		@param {string} type
+*/
 function changemap(type){
-	//changes the view type of the map to the specified parameter
 	switch(type) {
     case 'roadmap':
-	infomap.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-        break;
+			infoMap.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+    	break;
     case 'terrain':
-	infomap.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-        break;
-	case 'hybrid':
-	infomap.setMapTypeId(google.maps.MapTypeId.HYBRID);
-        break;
-	case 'satellite':
-	infomap.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-        break;
-}
+			infoMap.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+      break;
+		case 'hybrid':
+			infoMap.setMapTypeId(google.maps.MapTypeId.HYBRID);
+      break;
+		case 'satellite':
+			infoMap.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+      break;
+		}
 }
 
 
+/**
+*		Creates a new marker and places it on the map
+*		@param {float} x - latidude of bus
+*		@param {float} y - latidude of bus
+*		@param {string} name - name of the bus
+*		@param {string} route - route of the bus
+*/
 function newmarker(x,y,name,route) {
-	/*
-	Creates a new marker and places it on the map
-	each marker takes 4 parameters latatude, longatude the buss name
-	and the destionation time of that buss
-	*/
-
 	locations.push([name,x,y,route]);
-	var myLatlng = {lat: x,lng: y}; 
-	
-	//create marker
+	var myLatLng = {lat: x,lng: y};
+
+	//	create marker
 	mark = new google.maps.Marker({
-		position: myLatlng,
-		map: infomap,
+		position: myLatLng,
+		map: infoMap,
 		icon: "media/bus.png",
 		title: 'Double click to zoom'
 	});
-	
-	//create information window
-	var binfo = notify(mark.getPosition());
-	var iw = new google.maps.InfoWindow({
-		content: binfo
+
+	//	create information window
+	var busInfo = notify(mark.getPosition());
+	var infoWindow = new google.maps.InfoWindow({
+		content: busInfo
 	});
-	
-	//keep track of markers and windows
-	allmarkers.push(mark);
-	allwindows.push(iw);
-	
-	//add click and double click events
+
+	//	keep track of markers and windows
+	allMarkers.push(mark);
+	allWindows.push(infoWindow);
+
+	//	add click and double click events
 	mark.addListener('click', function() {
 		clearwindows();
-		iw.open(infomap, this);
+		infoWindow.open(infoMap, this);
 	});
 	mark.addListener('dblclick', function() {
-		infomap.setZoom(15);
-		infomap.setCenter(this.getPosition());
+		infoMap.setZoom(15);
+		infoMap.setCenter(this.getPosition());
 	});
-	
-	//poisbly autocenter the map
-	var autosize = document.getElementById("autosizecb").checked;
-	if (autosize) {
-	
+
+	//	auto centre map if checkbox is checked
+	var autoSize = document.getElementById("autoSizecb").checked;
+	if (autoSize) {
+
 		var bounds = new google.maps.LatLngBounds();
-			
-		for (var i = 0; i < allmarkers.length; i++) {
-			bounds.extend(allmarkers[i].getPosition());
+
+		for (var i = 0; i < allMarkers.length; i++) {
+			bounds.extend(allMarkers[i].getPosition());
 		}
-		infomap.fitBounds(bounds);
+		infoMap.fitBounds(bounds);
 	}
-	
+
 }
 
 
-
-	
+/**
+* 	clears all the markers on the map so new more recent ones can be added
+*/
 function refreshMap(){
-	// clears all the markers on the map so new more recent ones cna be added
-	
-    for (var mind = 0; mind < allmarkers.length; mind++) {
-        allmarkers[mind].setMap(null);
+    for (var i = 0; i < allMarkers.length; i++) {
+        allMarkers[i].setMap(null);
     }
-	
-	allmarkers = [];
-	locations = []; 
+
+	allMarkers = [];
+	locations = [];
 }
-	
+
+
+/**
+*		returns a string of the infromation of a bus given its location.
+*		@param {float} loc - location of a bus
+*   @return {string} - formatted string that is used for infoWindow display
+*/
 function notify(loc) {
-	/*
-	returns a string of the infromation of a bus given its location.
-	*/
-	
 	var name;
 	var time;
-	var testLatlng;
-	
+	var testLatLng;
+
 	for (var i = 0; i < locations.length; i ++) {
-	
-		testLatlng = [locations[i][1], locations[i][2]];
-		
-		if ((testLatlng[0].toString()).slice(0, 9) == (loc.toString()).slice(1, 10)){
+
+		testLatLng = [locations[i][1], locations[i][2]];
+
+		if ((testLatLng[0].toString()).slice(0, 9) == (loc.toString()).slice(1, 10)){
 		name = locations[i][0];
 		time = locations[i][3];
 		}
 	}
-	
+
 	return "<b>Bus id: "+name + "</b> <br>Trip start time: " + time + "<br>Co-ordinates: " + loc;
 }
