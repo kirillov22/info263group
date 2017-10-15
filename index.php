@@ -13,7 +13,7 @@ require_once("include/config.php");
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
-	
+
 		<div id="typebox">
 		<p id="typehead"><b>Map View</b></p>
 		<a class="mtype" onclick="changemap('roadmap')">ROADMAP</a>
@@ -21,7 +21,7 @@ require_once("include/config.php");
 		<a class="mtype" onclick="changemap('hybrid')">HYBRID</a>
 		<a class="mtype" onclick="changemap('satellite')">SATELLITE</a>
 		</div>
-		
+
 		<div id="navbar">
 		<table>
 		<tr>
@@ -35,7 +35,7 @@ require_once("include/config.php");
 		</td>
 		</tr>
 		</table>
-		
+
 		<table id="checkboxtable">
 		<tr>
 		<td>
@@ -50,7 +50,7 @@ require_once("include/config.php");
 		</tr>
 		</table>
 		</div>
-		
+
 		<div id="map"></div><br>
 		<div id="output">
 			<p id="routeOutput">
@@ -60,12 +60,11 @@ require_once("include/config.php");
 		<script>
 		    $(document).ready(function() {
 					routeQuery();
-					//APIquery();
-					
+
 					$('#routeSelect').on('change', function() {
 						APIquery();
 					})
-					
+
 				});
 		</script>
 	</body>
