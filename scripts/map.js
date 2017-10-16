@@ -26,27 +26,6 @@ function clearwindows(){
 	}
 }
 
-/**
-*		Changes the view type of the map depending on the specified parameter
-*		@param {string} type
-*/
-function changemap(type){
-	switch(type) {
-    case 'roadmap':
-			infoMap.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-    	break;
-    case 'terrain':
-			infoMap.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-      break;
-		case 'hybrid':
-			infoMap.setMapTypeId(google.maps.MapTypeId.HYBRID);
-      break;
-		case 'satellite':
-			infoMap.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-      break;
-		}
-}
-
 
 /**
 *		Creates a new marker and places it on the map
@@ -88,7 +67,7 @@ function newmarker(x,y,name,route) {
 	});
 
 	//	auto centre map if checkbox is checked
-	var autoSize = document.getElementById("autoSizecb").checked;
+	var autoSize = document.getElementById("autosizecb").checked;
 	if (autoSize) {
 
 		var bounds = new google.maps.LatLngBounds();

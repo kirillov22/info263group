@@ -86,7 +86,7 @@ function noBussesFound(queryRoute) {
 	refreshMap();
 	$('#routeOutput').text('No busses found for route: ' + queryRoute);
 	if ($('#autosizecb').prop('checked')) {
-		infomap.setCenter(initialPoint);
-		infomap.setZoom(15);
+		infoMap.setCenter(initialPoint);
+		infoMap.setZoom(15);
 	}
 }

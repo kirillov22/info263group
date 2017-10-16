@@ -14,13 +14,6 @@ require_once("include/config.php");
 	</head>
 	<body>
 
-		<div id="typebox">
-		<p id="typehead"><b>Map View</b></p>
-		<a class="mtype" onclick="changemap('roadmap')">ROADMAP</a>
-		<a class="mtype"onclick="changemap('terrain')">TERRAIN</a>
-		<a class="mtype" onclick="changemap('hybrid')">HYBRID</a>
-		<a class="mtype" onclick="changemap('satellite')">SATELLITE</a>
-		</div>
 
 		<div id="navbar">
 		<table>
